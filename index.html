@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Weather</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-4.4.1/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+	<section class="vw-100 vh-100 d-flex flex-column align-items-center justify-content-around">
+		<h1 class="display-2 lead text-white">ПОГОДА НА 3 ДНЯ</h1>
+			<section class="vw-100 d-flex align-items-center section row justify-content-around align-self-center no-gutters ">
+
+				<div class="content d-flex flex-column align-items-center justify-content-center">
+					<h1 class="display-4">{{dataString_tomorrow}}</h1>
+					<div class="d-flex flex-column align-items-center">	
+						<h1 class="display-3">{{kelvin_to_celsius(tomorrow_t_avg)}}</h1>
+						<img :src="'http://openweathermap.org/img/wn/'+tomorrow_p+'@2x.png'" v-if="tomorrow_p!=''" class="img-fluid">
+						<p class="lead">{{tomorrow_d}}</p>
+					</div>
+				</div>
+				<div class="content d-flex flex-column align-items-center justify-content-center">
+					<h1 class="display-4">{{dataString_after_tomorrow}}</h1>
+					<div class="d-flex flex-column align-items-center">
+						<h1 class="display-3">{{kelvin_to_celsius(after_tomorrow_t_avg)}}</h1>
+						<img :src="'http://openweathermap.org/img/wn/'+after_tomorrow_p+'@2x.png'" v-if="after_tomorrow_p!=''" class="img-fluid">
+						<p class="lead">{{after_tomorrow_d}}</p>
+					</div>
+				</div>
+				<div class="content d-flex flex-column align-items-center justify-content-center">
+					<h1 class="display-4">{{dataString_after_td_a_tomorrow}}</h1>
+					<div class="d-flex flex-column align-items-center">
+						<h1 class="display-3">{{kelvin_to_celsius(after_td_a_tomorrow_t_avg)}}</h1>
+						<img :src="'http://openweathermap.org/img/wn/'+after_td_a_tomorrow_p+'@2x.png'" v-if="after_td_a_tomorrow_p!=''"class="img-fluid">
+						<p class="lead">{{after_td_a_tomorrow_d}}</p>
+					</div>
+				</div>
+			</section>
+		</section>
+</body>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/axios.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</html>
